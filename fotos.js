@@ -1,0 +1,1 @@
+conts_fotos = ["celo_1.jpg", "celo_2.jpg", "chamuscada_1.jpg", "chamuscada_2.jpg", "escuadra_1.jpg", "escuadra_2.jpg", "escuadra_3.jpg", "plastico_1.jpg", "plastico_2.jpg", "regla_1.jpg", "regla_2.jpg", "regla_dani.jpg", "tapac_1.jpg", "tapac_2.jpg", "tapac_3.jpg", "tapac_4.jpg", "tapac_5.jpg", "tapac_6.jpg", "tapac_7.jpg", "transportador_1.jpg", "transportador_2.jpg"];
