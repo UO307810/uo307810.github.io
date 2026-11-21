@@ -5,29 +5,117 @@
     <meta charset = "utf8">
     <meta name = "theme-color" content = "#FFA51F">
     <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+
+    <script type = "text/javascript">
+      function resizeImg(img){
+
+        if (img.style.position === "fixed"){
+          img.style.cssText = "";
+          return;
+        }
+
+        var centrox = window.innerWidth/2;
+        var centroy = window.innerHeight/2;
+
+        img.style.position = "fixed"
+        img.style.left = centrox + "px";
+        img.style.top = centroy + "px";
+        img.style.transform = "translate(-50%, -50%)";
+        img.style.margin = "0";
+        img.style.width = "auto";
+        img.style.height = "auto";
+        img.style.maxWidth = "90vw";
+        img.style.maxHeight = "90vh";
+        img.style.zIndex = "10";
+      }
+    </script>
+    <script src = "fotos.js"></script>
+    
     <style>
       body{
         background: #5C3600;
         color: #FFFFF5;
         font-family: "Times New Roman";
-        margin: 0;
+        margin: 60px;
         padding: 3rem 1.5rem;
+        text-align: center;
+        padding-top: 50px;
       }
+
       h1{
         font-family: 'Times New Roman';
         font-size: 5rem;
       }
-      img{
+
+      img {
         width: 100%;
-        max-width: 750px;
-        border-radius: 8px;
+        max-width: 500px;
+        border-radius: 10px;
       }
 
+      .image-grid{
+        --gap: 25px;
+        --num-cols: 4;
+        --row-height: 500px;
+        box-sizing: border-box;
+        padding: var(--gap);
+        display: grid;
+        grid-template-columns: repeat(var(--num-cols), 1fr);
+        grid-auto-rows: var(--row-height);
+        gap: var(--gap);
+      }
 
+      .image-grid img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media screen and (max-width: 1500px){
+        .image-grid{
+          --num-cols: 2;
+          --row-height: 250px;
+        }
+      }
+
+      div img{
+        transition: transform 0.53s ease-out;
+      }
+
+      div img:hover{
+        transform: scale(1.1);
+      }
+      /*
+      .click-zoom input[type=checkbox] {
+        display: none
+      }
+
+      .click-zoom img {
+        margin: 100px;
+        transition: transform 0.3s ease;
+        cursor: zoom-in
+      }
+
+      .click-zoom input[type=checkbox]:checked~img {
+        transform: scale(5);
+        cursor: zoom-out
+      }
+      */
     </style>
   </head>
   <body>
-    <h1> Fotografías </h1>
-    <img src = "Fotos/20261110_181137.jpg" width = "500" alt = "Es de la regla"/>
-    <h1 >Videos </h1>
+    <h1> FOTOGRAFÍAS </h1>
+    <div class = "image-grid">
+      <script>
+        const galeria = document.querySelector(".image-grid");
+        conts_fotos.forEach(function (nombre) {
+          const img = document.createElement("img");
+          img.src = "Fotos/" + nombre;
+          img.addEventListener("click", function () {resizeImg(img);});
+          galeria.appendChild(img);
+        });
+
+      </script>
+    </div>
+    <h1> VIDEOS </h1>
   </body>
