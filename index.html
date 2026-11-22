@@ -54,7 +54,7 @@
 
       h1{
         /* font-family: 'Times New Roman'; */
-        font-size:  clamp(1rem, 6.5vw, 130rem);
+        font-size:  clamp(1rem, 9vw, 130rem);
         font-weight: 700;
         font-style: italic;
         letter-spacing: 0.6vw;
@@ -96,7 +96,7 @@
 
       @media (max-width: 900px) {
         .image-grid > * {
-          flex-basis: calc(50% - -var(--gap));
+          flex-basis: calc(50% - var(--gap) / 2);
         }
       }
 
@@ -106,7 +106,7 @@
 
       @media (max-width: 900px) {
         #galVids > * {
-          flex-basis: calc(50% - -var(--gap));
+          flex-basis: calc(50% - var(--gap) / 2);
         }
       }
 
