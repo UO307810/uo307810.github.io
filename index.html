@@ -33,6 +33,7 @@
     </script>
     
     <script src = "fotos.js"></script>
+    <script src = "videos.js"></script>
     
     <style>
       @font-face {
@@ -69,6 +70,11 @@
         border-radius: 14px;
       }
 
+      video {
+        width: 100%;
+        border-radius: 14px;
+      }
+
       .image-grid{
         grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
         --gap: 70px;
@@ -84,7 +90,14 @@
       .image-grid img {
         width: 100%;
         height: auto;
-        aspect-ratio: 2;
+        aspect-ratio: 1;
+        object-fit: cover;
+      }
+
+      .image-grid video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
         object-fit: cover;
       }
 
@@ -100,8 +113,16 @@
         transition: transform 0.53s ease-out;
       }
 
+      div video{
+        transition: transform 0.53s ease-out;
+      }
+
       div img:hover{
         transform: scale(1.2);
+      }
+
+      div video:hover{
+        transform: scale(1.5);
       }
       
       .click-zoom input[type=checkbox] {
@@ -145,5 +166,35 @@
       </script>
     </div>
     <h1> VIDEOS </h1>
+    <div class = "image-grid" id = "galVids">
+      <script>
+        const galeriaVids = document.querySelector("#galVids");
+        conts_videos.forEach(function (nombre) {
+
+          /*
+          const caja = document.createElement("div");
+          const label = document.createElement("label");
+          const input = document.createElement("input");
+          */
+          const video = document.createElement("video");
+
+          video.src = "Videos/" + nombre;
+          video.controls = true;
+          video.preload = "metadata";
+
+          /*
+          caja.className = "click-zoom";
+          input.type = "checkbox";
+          img.src = "Videos/" + nombre;
+
+          label.appendChild(input);
+          label.appendChild(img);
+          caja.appendChild(label);
+          */
+
+          galeriaVids.appendChild(video);
+        });
+      </script>
+    </div>
   </body>
 </html>
