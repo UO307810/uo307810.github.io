@@ -98,6 +98,7 @@
         .image-grid > * {
           flex-basis: calc(50% - var(--gap) / 2);
         }
+        
       }
 
       #galVids > * {
@@ -106,7 +107,17 @@
 
       @media (max-width: 900px) {
         #galVids > * {
-          flex-basis: calc(50% - var(--gap) / 2);
+          flex-basis: calc(32% - var(--gap) / 3);
+        }
+        .click-zoom input[type=checkbox]:checked~img {
+        transform: scale(1.6;
+        cursor: zoom-out
+        }
+        div img:hover{
+        transform: scale(1);
+        }
+        div video:hover{
+        transform: scale(1);
         }
       }
 
